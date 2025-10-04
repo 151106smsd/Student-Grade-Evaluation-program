@@ -1,20 +1,26 @@
 # student_grade.py
 
-def calculate_grade(marks):
-    if marks >= 90:
+def calculate_grade(avg):
+    if avg >= 90:
         return "A"
-    elif marks >= 75:
+    elif avg >= 75:
         return "B"
-    elif marks >= 60:
+    elif avg >= 60:
         return "C"
-    elif marks >= 40:
+    elif avg >= 40:
         return "D"
     else:
         return "Fail"
 
-# Take input
-marks = int(input("Enter the marks of the student: "))
-grade = calculate_grade(marks)
+# Take input for 5 subjects
+marks = []
+for i in range(1, 6):
+    m = int(input(f"Enter marks for subject {i}: "))
+    marks.append(m)
 
-print(f"Marks: {marks}")
+average = sum(marks) 
+grade = calculate_grade(average)
+
+print("Marks:", marks)
+print(f"Average: {average:.2f}")
 print(f"Grade: {grade}")
